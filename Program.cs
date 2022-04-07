@@ -55,9 +55,9 @@ namespace TestApplication
 
                             case 3:
                                 Console.WriteLine("|           Closing app. Goodbye!           |");
-                                Console.WriteLine("+-------------------------------------------+-----------------+");
-                                Console.WriteLine("| Github:                                                     |");
-                                Console.WriteLine("+=============================================================+");
+                                Console.WriteLine("+-------------------------------------------+------------+");
+                                Console.WriteLine("| Github: https://github.com/tohamdhope/TomHunterTestApp |");
+                                Console.WriteLine("+========================================================+");
                                 break;
                         }
                     
