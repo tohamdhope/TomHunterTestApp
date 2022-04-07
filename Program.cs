@@ -23,9 +23,10 @@ namespace TestApplication
 
                     while (true)
                     {
-                        Console.WriteLine("|  Input your choice:                       |");
+                        Console.Write("|  Input your choice: ");
                         var input = Console.ReadLine();
-                        if (input == null)
+                        int result = int.Parse(input);
+                        if (input == null || int.TryParse(input, out result))
                         {
                             continue;
                         }
@@ -35,9 +36,9 @@ namespace TestApplication
                         {
                             case 1:
                                 Console.WriteLine("+             Creating new user.            +");
-                                Console.WriteLine("|             Enter login:                  |");
+                                Console.Write("|             Enter login: ");
                                 string login = Console.ReadLine();
-                                Console.WriteLine("|             Enter password:               |");
+                                Console.Write("|             Enter password:               |");
                                 string password = Console.ReadLine();
                                 var usr = new Users()
                                 {
@@ -60,6 +61,7 @@ namespace TestApplication
                                 break;
 
                             case 3:
+                                Console.WriteLine(".___________________________________________.");
                                 Console.WriteLine("|           Closing app. Goodbye!           |");
                                 Console.WriteLine("+-------------------------------------------+------------+");
                                 Console.WriteLine("| Github: https://github.com/tohamdhope/TomHunterTestApp |");
