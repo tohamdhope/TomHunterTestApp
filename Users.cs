@@ -16,7 +16,7 @@ namespace TestApplication
 
         public override string ToString()
         {
-            return "|    User: " + UserID + " " + UserLogin + "  " + Password + "  |";
+            return "|    User: " + UserID + " " + UserLogin + "  Paswword:  " + Password + "  |";
         }
     }
 }
