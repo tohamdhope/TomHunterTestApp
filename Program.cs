@@ -19,55 +19,58 @@ namespace TestApplication
             using (var context = new ApplicationContext()) 
             {
 
-                try {   
+                try {
 
                     while (true)
                     {
                         Console.WriteLine("|  Input your choice:                       |");
-                        int choiceMenu = int.Parse(Console.ReadLine());
-                        if (choiceMenu > 0 && choiceMenu < 4)
+                        var input = Console.ReadLine();
+                        if (input == null)
                         {
-
-                            switch (choiceMenu)
-                            {
-                                case 1:
-                                    Console.WriteLine("+             Creating new user.            +");
-                                    Console.WriteLine("|             Enter login:                  |");
-                                    string login = Console.ReadLine();
-                                    Console.WriteLine("|             Enter password:               |");
-                                    string password = Console.ReadLine();
-                                    var usr = new Users()
-                                    {
-                                        UserLogin = login,
-                                        Password = password
-                                    };
-
-                                    context.Users.Add(usr);
-                                    context.SaveChanges();
-                                    Console.WriteLine("|  User was successfully added to the table |");
-                                    break;
-
-                                case 2:
-                                    Console.WriteLine("|          Output info from Table           |");
-                                    List<Users> users = context.Users.ToList();
-                                    foreach (Users u in users)
-                                    {
-                                        Console.WriteLine(u);
-                                    }
-                                    break;
-
-                                case 3:
-                                    Console.WriteLine("|           Closing app. Goodbye!           |");
-                                    Console.WriteLine("+-------------------------------------------+------------+");
-                                    Console.WriteLine("| Github: https://github.com/tohamdhope/TomHunterTestApp |");
-                                    Console.WriteLine("+========================================================+");
-                                    return;
-
-                                default:
-                                    Console.WriteLine("|             Choose a numer from 1 to 3                 |");
-                                    break;
-                            }
+                            continue;
                         }
+                        int choiceMenu = int.Parse(input);
+
+                        switch (choiceMenu)
+                        {
+                            case 1:
+                                Console.WriteLine("+             Creating new user.            +");
+                                Console.WriteLine("|             Enter login:                  |");
+                                string login = Console.ReadLine();
+                                Console.WriteLine("|             Enter password:               |");
+                                string password = Console.ReadLine();
+                                var usr = new Users()
+                                {
+                                    UserLogin = login,
+                                    Password = password
+                                };
+
+                                context.Users.Add(usr);
+                                context.SaveChanges();
+                                Console.WriteLine("|  User was successfully added to the table |");
+                                break;
+
+                            case 2:
+                                Console.WriteLine("|          Output info from Table           |");
+                                List<Users> users = context.Users.ToList();
+                                foreach (Users u in users)
+                                {
+                                    Console.WriteLine(u);
+                                }
+                                break;
+
+                            case 3:
+                                Console.WriteLine("|           Closing app. Goodbye!           |");
+                                Console.WriteLine("+-------------------------------------------+------------+");
+                                Console.WriteLine("| Github: https://github.com/tohamdhope/TomHunterTestApp |");
+                                Console.WriteLine("+========================================================+");
+                                return;
+
+                            default:
+                                Console.WriteLine("|             Choose a numer from 1 to 3                 |");
+                                break;
+                        }
+
                     }
                 }
                 catch (Exception ex) 
@@ -76,6 +79,19 @@ namespace TestApplication
                 }
                 
             }
+        }
+
+
+        public static string Verification(string message) 
+        {   
+            Console.WriteLine(message);
+            var inputString = Console.ReadLine();
+            while (inputString == null) 
+            {
+                Console.WriteLine("You didn't enter anything. try again");
+                Console.WriteLine(message);
+            }
+            return inputString;
         }
     }
 }
