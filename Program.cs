@@ -25,9 +25,7 @@ namespace TestApplication
                     {
                         Console.WriteLine("|  Input your choice:                       |");
                         int choiceMenu = int.Parse(Console.ReadLine());
-                        while (choiceMenu > 0 && choiceMenu < 3 | choiceMenu != null)
-                        {
-
+                        
                             switch (choiceMenu)
                             {
                                 case 1:
@@ -67,7 +65,7 @@ namespace TestApplication
                                     Console.WriteLine("|             Choose a numer from 1 to 3                 |");
                                     break;
                             }
-                        }
+                        
                     }
                 }
                 catch (Exception ex) 
