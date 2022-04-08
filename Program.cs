@@ -25,12 +25,13 @@ namespace TestApplication
                     {
                         Console.Write("|  Input your choice: ");
                         var input = Console.ReadLine();
-                       
-                        if (input == null)                   // if (input == null || int.TryParse(input) ????)
+                        int choiceMenu;
+
+
+                        if (input == null || !int.TryParse(input, out choiceMenu))
                         {
                             continue;
                         }
-                        int choiceMenu = int.Parse(input);
 
                         switch (choiceMenu)
                         {
@@ -87,13 +88,16 @@ namespace TestApplication
         public static string Verification(string message)
         {
             Console.WriteLine(message);
-            var inputString = Console.ReadLine();
-            while (inputString == null) 
+            while (true)
             {
-                Console.WriteLine("You didn't enter anything. try again");
-                inputString = Console.ReadLine();
+                string inputString = null;
+                if (!String.IsNullOrEmpty(inputString)) 
+                {
+                    Console.WriteLine("You didn't enter anything. try again");
+                    inputString = Console.ReadLine();
+                }
             }
-            return inputString;
+            
         }
     }
 }
