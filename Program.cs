@@ -25,8 +25,8 @@ namespace TestApplication
                     {
                         Console.Write("|  Input your choice: ");
                         var input = Console.ReadLine();
-                        int result = int.Parse(input);
-                        if (input == null || int.TryParse(input, out result))
+                       
+                        if (input == null)                   // if (input == null || int.TryParse(input) ????)
                         {
                             continue;
                         }
@@ -36,10 +36,10 @@ namespace TestApplication
                         {
                             case 1:
                                 Console.WriteLine("+             Creating new user.            +");
-                                Console.Write("|             Enter login: ");
-                                string login = Console.ReadLine();
-                                Console.Write("|             Enter password:               |");
-                                string password = Console.ReadLine();
+                                string messageLogin = "|             Enter login: ";
+                                string login = Verification(messageLogin);
+                                string passwordMessage = "|             Enter password:               |";
+                                string password = Verification(passwordMessage);
                                 var usr = new Users()
                                 {
                                     UserLogin = login,
@@ -84,14 +84,14 @@ namespace TestApplication
         }
 
 
-        public static string Verification(string message) 
-        {   
+        public static string Verification(string message)
+        {
             Console.WriteLine(message);
             var inputString = Console.ReadLine();
             while (inputString == null) 
             {
                 Console.WriteLine("You didn't enter anything. try again");
-                Console.WriteLine(message);
+                inputString = Console.ReadLine();
             }
             return inputString;
         }
