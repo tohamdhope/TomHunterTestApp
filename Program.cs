@@ -88,7 +88,7 @@ namespace TestApplication
             while (true)
             {
                 Console.WriteLine(message);
-                string inputString = Console.ReadLine();
+                string? inputString = Console.ReadLine();
                 if (!String.IsNullOrEmpty(inputString)) 
                 {
                     return inputString;
