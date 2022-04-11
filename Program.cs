@@ -87,14 +87,13 @@ namespace TestApplication
 
         public static string Verification(string message)
         {
-            Console.WriteLine(message);
             while (true)
             {
-                string inputString = null;
+                Console.WriteLine(message);
+                string inputString = Console.ReadLine();
                 if (!String.IsNullOrEmpty(inputString)) 
                 {
-                    Console.WriteLine("You didn't enter anything. try again");
-                    inputString = Console.ReadLine();
+                    return inputString;
                 }
             }
             
