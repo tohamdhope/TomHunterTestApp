@@ -37,10 +37,10 @@ namespace TestApplication
                         {
                             case 1:
                                 Console.WriteLine("+             Creating new user.            +");
-                                string messageLogin = "|             Enter login: ";
-                                string login = Verification(messageLogin);
-                                string passwordMessage = "|             Enter password:               |";
-                                string password = Verification(passwordMessage);
+                               //  string messageLogin = "|             Enter login: ";
+                                string login = Verification("|             Enter login: ");
+                               // string passwordMessage = "|             Enter password:               |";
+                                string password = Verification("|             Enter password:               |");
                                 var usr = new Users()
                                 {
                                     UserLogin = login,
