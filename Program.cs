@@ -30,6 +30,7 @@ namespace TestApplication
 
                         if (input == null || !int.TryParse(input, out choiceMenu))
                         {
+                            Console.WriteLine("|  You didn't enter anything. Try again:  ");
                             continue;
                         }
 
